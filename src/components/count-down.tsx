@@ -1,4 +1,6 @@
 "use client";
+
+
 import { useState,useRef,useEffect,ChangeEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -73,51 +75,40 @@ function CountDown(){
         setDuration(Number(e.target.value) || "");
     };
     return(
-        <div className="flex flex-col items-center justify-center h-screen bg-blue-200 dark:bg-gray-900">
-            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-md">
-                <h1 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200 text-center font-extrabold">Countdown Timer</h1>
+        <div className="flex flex-col items-center justify-center h-screen bg-blue-100 dark:bg-blue-900">
+            <div className="bg-white dark:gb-gray-800 shadow-lg rounded-lg p-8 w-full max-w-md">
+                <h1 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200 text-center">Countdown Timer</h1>
                 <div className="flex items-center mb-6">
                     <Input
                     type="number"
                     id="duration"
                     placeholder="Enter duration in seconds"
                     value={duration}
-                    onChange={handleDurationChange} 
-                    className="flex-2 mb-20 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 "/>
-
-                    <div>
+                    onChange={handleDurationChange}
+                    className="flex-1 mr-4 rounded-md border-gray-900 dark:gray-900 dark:dg-gray-700 dark:text-gray-500"
+                    />
                     <Button
                     onClick={handleSetDuration}
                     variant="outline"
-                    className="text-gray-800 dark:text-gray-200"
-                    >set</Button>
-                    <div className="text-6xl font-bold text-gray-800 dark:text-gray-200">
-                        {formatTime(timeLeft)}
-                    </div>
-                    <div className="flex justify-center gap-4">
-                        <Button
-                        onClick={handleStart}
-                        variant="outline"
-                        className="text-gray-800 dark:text-gray-200"
-                        >
-                            {isPaused ? "Resume" : "Start"}
-                        </Button>
-
-                            <Button 
-                            onClick={handlePause}
-                            variant="outline"
-                            className="text-gray-800 dark:text-gray-200"
-                            >pause
-                        </Button>
-
-                        <Button onClick={handleResert}
-                        variant="outline"
-                        className="text-gray-800 dark:text-gray-200"
-                        >
-                            reset
-                        </Button>
-                        </div>
-                    </div>
+                    className="text-gray-900 dark:text-gray-500 border-gray-900">Set
+                    </Button>
+                </div>
+                <div className="text-8xl font-bold text-gray-900 dark:text-gray-500 mb-8 text-center">
+                    {formatTime(timeLeft)}
+                </div>
+                <div className="flex justify-center gap-5">
+                    <Button
+                    onClick={handleStart}
+                    variant="outline"
+                    className="text-gray-900 dark:text-gray-500 border-gray-900">Start</Button>
+                    <Button
+                    onClick={handlePause}
+                    variant="outline"
+                    className="text-gray-900 dark:text-gray-500 border-gray-900">Pause</Button>
+                    <Button
+                    onClick={handleResert}
+                    variant="outline"
+                    className="text-gray-900 dark:text-gray-500 border-gray-900">Reset</Button>
                 </div>
             </div>
         </div>
